@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ramesh Joshi – Cybersecurity Analyst</title>
+<meta name="description" content="Portfolio of Ramesh Joshi, cybersecurity analyst with an MSc in Computer Science (Cyber Security).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F5F8; --surface:#FFFFFF; --ink:#13233A; --text:#334155; --muted:#64748B;
+  --line:#E2E7EE; --accent:#1F6FB2; --accent-ink:#FFFFFF; --accent-soft:#E7F0F9; --teal:#0F8A7E; --teal-soft:#E3F4F1;
+  --bar:#B3BECB; --side:#0E1B2C; --side-text:#B8C4D3; --side-active:#1B3150; --side-line:#1E2E44;
+  --shadow:0 1px 2px rgba(15,27,44,.06),0 4px 16px rgba(15,27,44,.05);
+  color-scheme:light; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1320; --surface:#121D2D; --ink:#E8EDF3; --text:#C5CFDB; --muted:#8B98A9;
+    --line:#22314A; --accent:#5FA3DE; --accent-ink:#0B1320; --accent-soft:#16304A; --teal:#4CC3B3; --teal-soft:#123532;
+    --bar:#46566B; --side:#08101B; --side-text:#A6B3C4; --side-active:#16283F; --side-line:#172438;
+    --shadow:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B1320; --surface:#121D2D; --ink:#E8EDF3; --text:#C5CFDB; --muted:#8B98A9;
+  --line:#22314A; --accent:#5FA3DE; --accent-ink:#0B1320; --accent-soft:#16304A; --teal:#4CC3B3; --teal-soft:#123532;
+  --bar:#46566B; --side:#08101B; --side-text:#A6B3C4; --side-active:#16283F; --side-line:#172438;
+  --shadow:none; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--text);font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+svg.i{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- layout ---------- */
+.app{display:grid;grid-template-columns:270px 1fr;min-height:100%}
+.side{background:var(--side);color:var(--side-text);position:sticky;top:0;height:100vh;height:100dvh;display:flex;flex-direction:column;padding:28px 18px 22px;overflow-y:auto}
+.brand{display:flex;align-items:center;gap:12px;padding:0 8px 22px;border-bottom:1px solid var(--side-line);margin-bottom:18px}
+.avatar{width:52px;height:52px;border-radius:14px;background:linear-gradient(140deg,#2A7DC4,#0F8A7E);display:grid;place-items:center;color:#fff;font-weight:800;font-size:19px;letter-spacing:.02em;flex:none}
+.brand strong{display:block;color:#fff;font-size:17px;line-height:1.25}
+.brand span{font-size:13.5px}
+.status{display:flex;align-items:center;gap:8px;font-size:13px;margin:0 8px 20px;color:#CFE8E3}
+.status i{width:8px;height:8px;border-radius:50%;background:#34D3B5;box-shadow:0 0 0 4px rgba(52,211,181,.15)}
+.menu{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.menu a{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:9px;color:var(--side-text);text-decoration:none;font-weight:500;font-size:15px}
+.menu a:hover{background:var(--side-active);color:#fff}
+.menu a[aria-current="page"]{background:var(--side-active);color:#fff;box-shadow:inset 3px 0 0 #5FA3DE}
+.side-foot{margin-top:auto;padding:18px 8px 0;border-top:1px solid var(--side-line);display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+.side-foot a{color:var(--side-text);text-decoration:none;display:flex;align-items:center;gap:10px}
+.side-foot a:hover{color:#fff}
+.side-foot svg.i{width:17px;height:17px}
+
+.main{min-width:0}
+.scrim{display:none}
+.topbar{display:none}
+.page{display:none;max-width:1060px;margin:0 auto;padding:40px 40px 64px}
+.page.on{display:block}
+@media (prefers-reduced-motion:no-preference){.page.on{animation:in .35s ease both}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
+
+/* mobile */
+@media (max-width:900px){
+  .app{grid-template-columns:1fr}
+  .side{position:fixed;inset:0 auto 0 0;width:min(300px,86vw);z-index:30;transform:translateX(-102%);transition:transform .25s ease;padding-top:calc(28px + env(safe-area-inset-top,0px));padding-bottom:calc(22px + env(safe-area-inset-bottom,0px));height:100%}
+  .side.open{transform:none}
+  .scrim{position:fixed;inset:0;background:rgba(5,10,18,.5);z-index:25;display:none}
+  .scrim.open{display:block}
+  .topbar{display:flex;align-items:center;justify-content:space-between;position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--side);color:#fff;padding:12px 18px}
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--side)}
+  .topbar strong{font-size:16px}
+  .menu-btn{background:none;border:1px solid var(--side-line);color:#fff;border-radius:8px;padding:7px 9px;display:flex;align-items:center;gap:8px;font:inherit;font-size:14px;cursor:pointer}
+  .page{padding:26px 18px 48px}
+}
+@media (prefers-reduced-motion:reduce){.side{transition:none}}
+
+/* ---------- shared components ---------- */
+.ph{margin-bottom:26px}
+.ph h1{font-size:clamp(28px,4vw,38px);line-height:1.15;letter-spacing:-.025em;color:var(--ink);margin:0 0 8px;font-weight:800}
+.ph p{margin:0;color:var(--muted);max-width:62ch}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+h2{font-size:20px;color:var(--ink);margin:0 0 12px;letter-spacing:-.01em;line-height:1.3}
+h3{font-size:17px;color:var(--ink);margin:0 0 6px;line-height:1.35}
+p{margin:0 0 12px}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:9px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--accent);cursor:pointer;font-family:inherit}
+.btn svg.i{width:18px;height:18px}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.row{display:flex;flex-wrap:wrap;gap:12px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tags li{font-size:13.5px;background:var(--accent-soft);color:var(--ink);padding:5px 11px;border-radius:999px}
+.icon-chip{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:14px}
+.icon-chip.teal{background:var(--teal-soft);color:var(--teal)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media (max-width:1000px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+.linkish{display:inline-flex;align-items:center;gap:6px;font-weight:600;text-decoration:none;font-size:15px}
+
+/* ---------- home ---------- */
+.hero{position:relative;overflow:hidden;border-radius:18px;padding:44px 40px;color:#fff;background:#0E2440;margin-bottom:22px}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(95,163,222,.55),rgba(15,138,126,.25) 55%,transparent 72%)}
+.hero svg.shield{position:absolute;right:46px;bottom:34px;width:150px;height:150px;opacity:.22;stroke:#fff;fill:none;stroke-width:1.2}
+.hero>*{position:relative;z-index:1}
+.hero .hi{font-size:15px;color:#9FC6EA;margin:0 0 8px;font-weight:600}
+.hero h1{font-size:clamp(34px,5.4vw,56px);line-height:1.03;letter-spacing:-.03em;margin:0 0 14px;font-weight:800;max-width:15ch}
+.hero p.sub{font-size:clamp(16px,1.9vw,19px);color:#D3E0EE;max-width:52ch;margin:0 0 26px}
+.hero .btn.primary{background:#fff;color:#0E2440;border-color:#fff}
+.hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.55)}
+@media (max-width:640px){.hero{padding:30px 22px}.hero svg.shield{width:100px;height:100px;right:16px;bottom:16px}}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:22px}
+@media (max-width:900px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{padding:20px}
+.stat b{display:block;font-size:30px;color:var(--ink);letter-spacing:-.02em;line-height:1.1;font-weight:800}
+.stat span{font-size:14px;color:var(--muted)}
+.home-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:18px}
+@media (max-width:1000px){.home-grid{grid-template-columns:1fr}}
+.focus{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.focus li{display:flex;gap:10px;align-items:center;font-size:15px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;color:var(--ink)}
+.focus li svg.i{color:var(--teal);width:18px;height:18px}
+@media (max-width:480px){.focus{grid-template-columns:1fr}}
+
+/* ---------- projects ---------- */
+.feature{margin-bottom:22px}
+.feature .meta{font-size:14px;color:var(--muted);margin-bottom:12px}
+.chart-wrap{overflow-x:auto;margin:18px 0 8px}
+.chart{min-width:520px;display:block}
+.chart text{font-family:inherit;fill:var(--text);font-size:13px}
+.chart .lbl{fill:var(--muted)}
+.chart .grp{font-weight:700;fill:var(--ink);font-size:14px}
+.legend{display:flex;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+.legend span::before{content:"";display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:7px;vertical-align:-1px;background:var(--bar)}
+.legend span.mine::before{background:var(--accent)}
+.note{font-size:15px;background:var(--accent-soft);border-radius:10px;padding:14px 16px;margin:16px 0}
+.lab p{font-size:15px;margin:0}
+.sec-label{font-size:15px;color:var(--muted);margin:6px 0 14px}
+
+/* ---------- skills ---------- */
+.skill h3{margin-bottom:12px}
+
+/* ---------- experience ---------- */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline>li{position:relative;padding:0 0 22px 30px}
+.timeline>li::before{content:"";position:absolute;left:7px;top:22px;bottom:-4px;width:2px;background:var(--line)}
+.timeline>li:last-child::before{display:none}
+.timeline .dot{position:absolute;left:0;top:24px;width:16px;height:16px;border-radius:50%;background:var(--surface);border:3px solid var(--accent)}
+.timeline .head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.pill{font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:3px 10px;border-radius:999px;white-space:nowrap}
+.timeline .org{color:var(--muted);font-size:15px;margin-bottom:10px}
+.timeline ul{margin:0;padding-left:18px}
+.timeline ul li{margin-bottom:6px;font-size:15.5px}
+
+/* ---------- certs ---------- */
+.cert{display:flex;gap:14px;align-items:flex-start}
+.cert .icon-chip{margin:0}
+.cert h3{font-size:16px;margin-bottom:2px}
+.cert .by{font-size:14px;color:var(--muted)}
+.yr{font-size:12.5px;font-weight:700;color:var(--teal);background:var(--teal-soft);padding:2px 9px;border-radius:999px;display:inline-block;margin-top:8px}
+.subhead{font-size:19px;color:var(--ink);margin:30px 0 14px;font-weight:700}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.cline{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.cline:last-child{border-bottom:0}
+.cline .icon-chip{margin:0}
+.cline small{display:block;color:var(--muted);font-size:13px}
+.cline a,.cline span.v{font-weight:600;color:var(--ink);text-decoration:none;word-break:break-word}
+.copied{font-size:14px;color:var(--teal);min-height:1.4em;margin-top:8px}
+.foot{margin-top:40px;font-size:13.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="m8.5 13.8-1.5 7.2 5-3 5 3-1.5-7.2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.01"/></symbol>
+  <symbol id="i-net" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="5" r="2.2"/><circle cx="19" cy="19" r="2.2"/><path d="m7 11 10-5M7 13l10 5"/></symbol>
+  <symbol id="i-disk" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="M12 3v18M7 21h10M5 7h14"/><path d="m5 7-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+</svg>
+
+<div class="app">
+  <aside class="side" id="side" aria-label="Site menu">
+    <div class="brand">
+      <div class="avatar" aria-hidden="true">RJ</div>
+      <div><strong>Ramesh Joshi</strong><span>Cybersecurity Analyst</span></div>
+    </div>
+    <div class="status"><i aria-hidden="true"></i>Available to start immediately</div>
+    <nav>
+      <ul class="menu">
+        <li><a href="#home" data-view="home"><svg class="i"><use href="#i-home"/></svg>Home</a></li>
+        <li><a href="#projects" data-view="projects"><svg class="i"><use href="#i-folder"/></svg>Projects</a></li>
+        <li><a href="#skills" data-view="skills"><svg class="i"><use href="#i-layers"/></svg>Skills</a></li>
+        <li><a href="#experience" data-view="experience"><svg class="i"><use href="#i-brief"/></svg>Experience</a></li>
+        <li><a href="#certifications" data-view="certifications"><svg class="i"><use href="#i-award"/></svg>Certifications</a></li>
+        <li><a href="#contact" data-view="contact"><svg class="i"><use href="#i-mail"/></svg>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="side-foot">
+      <a href="mailto:rameshjoci84@gmail.com" target="_blank" rel="noopener"><svg class="i"><use href="#i-mail"/></svg>rameshjoci84@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ramesh-joshi-7472aa256" target="_blank" rel="noopener"><svg class="i"><use href="#i-in"/></svg>LinkedIn</a>
+      <span style="display:flex;align-items:center;gap:10px"><svg class="i"><use href="#i-pin"/></svg>London, UK</span>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+
+  <div class="main">
+    <div class="topbar">
+      <strong>Ramesh Joshi</strong>
+      <button class="menu-btn" id="menuBtn" aria-controls="side" aria-expanded="false"><svg class="i"><use href="#i-menu"/></svg>Menu</button>
+    </div>
+
+    <!-- HOME -->
+    <section class="page" id="v-home" aria-label="Home">
+      <div class="hero">
+        <svg class="shield" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"/></svg>
+        <p class="hi">Hello, I’m Ramesh</p>
+        <h1>I help keep systems and data secure.</h1>
+        <p class="sub">Cybersecurity analyst with an MSc in Cyber Security and nearly five years of IT and network experience in Nepal. I find vulnerabilities, investigate alerts and help organisations respond to threats.</p>
+        <div class="row">
+          <a class="btn primary" href="#projects" data-view="projects">View my projects</a>
+          <a class="btn ghost" href="#contact" data-view="contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="card stat"><b>~5 yrs</b><span>IT and network experience</span></div>
+        <div class="card stat"><b>6</b><span>Security certifications</span></div>
+        <div class="card stat"><b>65+ hrs</b><span>Hands-on SOC lab training</span></div>
+        <div class="card stat"><b>MSc</b><span>Computer Science (Cyber Security)</span></div>
+      </div>
+
+      <div class="home-grid">
+        <div class="card">
+          <div class="icon-chip"><svg class="i"><use href="#i-folder"/></svg></div>
+          <h2>Featured: lightweight encryption for the cloud</h2>
+          <p>For my MSc dissertation I designed a lightweight encryption algorithm, built it in MATLAB and benchmarked it against AES and DES. On small files it ran about 30% faster than AES.</p>
+          <a class="linkish" href="#projects" data-view="projects">See the results <svg class="i" style="width:16px;height:16px"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="card">
+          <h2>What I focus on</h2>
+          <ul class="focus">
+            <li><svg class="i"><use href="#i-check"/></svg>Security testing</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Vulnerability assessment</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Incident response</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Access control</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Digital forensics</li>
+            <li><svg class="i"><use href="#i-check"/></svg>Threat intelligence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="page" id="v-projects" aria-label="Projects">
+      <div class="ph"><h1>Projects</h1><p>My MSc research and the practical investigations I’ve completed in professional training labs.</p></div>
+
+      <article class="card feature">
+        <div class="icon-chip"><svg class="i"><use href="#i-lock"/></svg></div>
+        <h2>Lightweight encryption algorithm for cloud data security</h2>
+        <p class="meta">MSc dissertation, Staffordshire University, 2024</p>
+        <p>Cloud workloads need encryption that protects data without slowing systems down. I designed a lightweight multi-round algorithm built on key expansion and layered XOR operations, implemented it in MATLAB, and benchmarked it against AES and DES on files from 10 KB to 500 KB. Each test was averaged over 20 runs, and I also evaluated the avalanche effect and plaintext–ciphertext correlation.</p>
+        <div class="chart-wrap" role="img" aria-label="Average encryption plus decryption time in seconds. 10 KB file: proposed algorithm 0.24, AES 0.34, DES 0.34. 200 KB file: proposed algorithm 0.40, AES 0.53, DES 0.39.">
+          <svg class="chart" viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <text class="grp" x="0" y="22">10 KB file</text>
+            <text class="lbl" x="0" y="48">Proposed</text><rect x="150" y="36" width="133" height="16" rx="3" fill="var(--accent)"/><text x="291" y="49">0.24 s</text>
+            <text class="lbl" x="0" y="72">AES</text><rect x="150" y="60" width="191" height="16" rx="3" fill="var(--bar)"/><text x="349" y="73">0.34 s</text>
+            <text class="lbl" x="0" y="96">DES</text><rect x="150" y="84" width="195" height="16" rx="3" fill="var(--bar)"/><text x="353" y="97">0.34 s</text>
+            <text class="grp" x="0" y="136">200 KB file</text>
+            <text class="lbl" x="0" y="162">Proposed</text><rect x="150" y="150" width="229" height="16" rx="3" fill="var(--accent)"/><text x="387" y="163">0.40 s</text>
+            <text class="lbl" x="0" y="186">AES</text><rect x="150" y="174" width="300" height="16" rx="3" fill="var(--bar)"/><text x="458" y="187">0.53 s</text>
+            <text class="lbl" x="0" y="210">DES</text><rect x="150" y="198" width="223" height="16" rx="3" fill="var(--bar)"/><text x="381" y="211">0.39 s</text>
+          </svg>
+        </div>
+        <div class="legend"><span class="mine">Proposed algorithm</span><span>Established algorithms</span></div>
+        <p class="note">On small files the algorithm ran about 30% faster than AES, and at 200 KB it stayed well ahead of AES and close to DES. AES remains the standard for strong security. This work explored whether a lighter design can cut processing cost for resource-limited cloud workloads; formal cryptanalysis would be the next step before any real deployment.</p>
+        <ul class="tags"><li>MATLAB</li><li>Cryptography</li><li>AES</li><li>DES</li><li>Performance testing</li><li>Cloud security</li></ul>
+      </article>
+
+      <p class="sec-label">Practical investigations completed in Security Blue Team and TryHackMe lab environments</p>
+      <div class="grid3">
+        <div class="card lab"><div class="icon-chip"><svg class="i"><use href="#i-search"/></svg></div><h3>Vulnerability assessment</h3><p>Scanned lab networks with Nmap, Nessus and OpenVAS, validated exploitable weaknesses with Metasploit in Kali Linux, and wrote remediation reports that prioritise fixes by risk.</p></div>
+        <div class="card lab"><div class="icon-chip teal"><svg class="i"><use href="#i-alert"/></svg></div><h3>Incident triage and response</h3><p>Investigated SIEM alerts in Splunk and Elastic, correlated Windows event and network logs, classified activity against MITRE ATT&amp;CK and documented escalation decisions.</p></div>
+        <div class="card lab"><div class="icon-chip"><svg class="i"><use href="#i-net"/></svg></div><h3>Network traffic analysis</h3><p>Analysed packet captures in Wireshark to identify suspicious traffic, lateral movement and indicators of compromise.</p></div>
+        <div class="card lab"><div class="icon-chip teal"><svg class="i"><use href="#i-disk"/></svg></div><h3>Digital forensics</h3><p>Acquired disk images with FTK Imager, verified evidence integrity through hash validation and examined artefacts in Autopsy.</p></div>
+        <div class="card lab"><div class="icon-chip"><svg class="i"><use href="#i-globe"/></svg></div><h3>OSINT and threat intelligence</h3><p>Assessed domain reputation and exposed credentials, and researched dark web sources to produce concise threat intelligence summaries.</p></div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="page" id="v-skills" aria-label="Skills">
+      <div class="ph"><h1>Skills</h1><p>The tools and techniques I use, grouped by area of security work.</p></div>
+      <div class="grid2">
+        <div class="card skill"><div class="icon-chip"><svg class="i"><use href="#i-search"/></svg></div><h3>Security testing</h3><ul class="tags"><li>Nmap</li><li>Nessus</li><li>OpenVAS</li><li>Qualys</li><li>Nikto</li><li>Metasploit</li><li>Kali Linux</li><li>Remediation reporting</li></ul></div>
+        <div class="card skill"><div class="icon-chip teal"><svg class="i"><use href="#i-alert"/></svg></div><h3>Incident response and monitoring</h3><ul class="tags"><li>Splunk</li><li>Elastic SIEM</li><li>Windows Event Viewer</li><li>Log correlation</li><li>Alert triage</li><li>MITRE ATT&amp;CK</li></ul></div>
+        <div class="card skill"><div class="icon-chip"><svg class="i"><use href="#i-net"/></svg></div><h3>Network security and forensics</h3><ul class="tags"><li>Wireshark</li><li>IDS/IPS alerts</li><li>FTK Imager</li><li>Autopsy</li><li>Evidence hashing</li><li>OSINT</li></ul></div>
+        <div class="card skill"><div class="icon-chip teal"><svg class="i"><use href="#i-lock"/></svg></div><h3>Access control and infrastructure</h3><ul class="tags"><li>Firewall rules</li><li>User permissions</li><li>Patch management</li><li>Windows</li><li>Linux</li><li>VMware</li></ul></div>
+        <div class="card skill"><div class="icon-chip"><svg class="i"><use href="#i-code"/></svg></div><h3>Scripting and programming</h3><ul class="tags"><li>Python</li><li>Bash</li><li>PowerShell</li><li>SQL</li><li>MATLAB</li><li>Java</li><li>C++</li><li>HTML/CSS</li></ul></div>
+        <div class="card skill"><div class="icon-chip teal"><svg class="i"><use href="#i-scale"/></svg></div><h3>Secure development and governance</h3><ul class="tags"><li>OWASP Top 10 (working knowledge)</li><li>Encryption design</li><li>GRC fundamentals</li><li>Phishing prevention</li></ul></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="page" id="v-experience" aria-label="Experience">
+      <div class="ph"><h1>Experience</h1><p>Security operations in the UK and IT infrastructure work in Nepal.</p></div>
+      <ol class="timeline">
+        <li><span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="head"><h3>Door supervisor and CCTV operator</h3><span class="pill">2023 – present</span></div>
+            <div class="org">Leon Guarding (2025 – present) and Integra Security (2023 – 2025), London. Part-time, SIA licensed.</div>
+            <ul>
+              <li>Monitor live CCTV to detect, record and escalate suspicious activity and security incidents.</li>
+              <li>Control site access through ID checks and entry procedures, refusing entry where policy requires.</li>
+              <li>Write accurate incident reports and follow escalation procedures with managers and emergency services.</li>
+            </ul>
+          </div>
+        </li>
+        <li><span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="head"><h3>Junior network administrator</h3><span class="pill">Mar 2019 – Jan 2023</span></div>
+            <div class="org">Techcare Softwares &amp; Research Center, Nepal</div>
+            <ul>
+              <li>Assisted the senior administrator with firewall rules, user access controls and system permissions for a 10-user office network.</li>
+              <li>Applied security patches and system upgrades across Windows and Linux systems, reducing exposure to known vulnerabilities.</li>
+              <li>Monitored network performance and helped resolve connectivity and infrastructure faults.</li>
+              <li>Supported secure network configuration and kept setup procedures documented.</li>
+            </ul>
+          </div>
+        </li>
+        <li><span class="dot" aria-hidden="true"></span>
+          <div class="card">
+            <div class="head"><h3>Junior IT support technician</h3><span class="pill">May 2018 – Feb 2019</span></div>
+            <div class="org">Sofsee Tech Vision, Nepal</div>
+            <ul>
+              <li>Installed and configured routers, switches and end-user systems.</li>
+              <li>Provided first-line support, logging requests in a ticketing system and spreadsheet log, and escalating complex faults.</li>
+              <li>Supported Windows and Linux users and applied the organisation’s IT security procedures.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="page" id="v-certifications" aria-label="Certifications and education">
+      <div class="ph"><h1>Certifications and education</h1><p>Professional certifications, practical training and academic qualifications.</p></div>
+      <div class="grid2">
+        <div class="card cert"><div class="icon-chip"><svg class="i"><use href="#i-award"/></svg></div><div><h3>Blue Team Junior Analyst (BTJA)</h3><div class="by">Security Blue Team</div><span class="yr">2025</span></div></div>
+        <div class="card cert"><div class="icon-chip"><svg class="i"><use href="#i-award"/></svg></div><div><h3>Certified Governance, Risk &amp; Compliance Analyst (CGRCA)</h3><div class="by">Security Blue Team</div><span class="yr">2025</span></div></div>
+        <div class="card cert"><div class="icon-chip"><svg class="i"><use href="#i-award"/></svg></div><div><h3>Certified Phishing Prevention Specialist (CPPS)</h3><div class="by">Security Blue Team</div><span class="yr">2025</span></div></div>
+        <div class="card cert"><div class="icon-chip"><svg class="i"><use href="#i-award"/></svg></div><div><h3>Certified Cybersecurity Fundamentals Specialist (CCFS)</h3><div class="by">Security Blue Team</div><span class="yr">2025</span></div></div>
+        <div class="card cert"><div class="icon-chip"><svg class="i"><use href="#i-award"/></svg></div><div><h3>Cybersecurity Career Starter Certification (CCSC)</h3><div class="by">Security Blue Team</div><span class="yr">2025</span></div></div>
+        <div class="card cert"><div class="icon-chip"><svg class="i"><use href="#i-award"/></svg></div><div><h3>Level 2 Certificate in Principles of Cyber Security</h3><div class="by">LMP Education, UK</div><span class="yr">2025</span></div></div>
+      </div>
+
+      <p class="subhead">Training</p>
+      <div class="grid2">
+        <div class="card cert"><div class="icon-chip teal"><svg class="i"><use href="#i-shield"/></svg></div><div><h3>SOC Level 1 learning path</h3><div class="by">TryHackMe, 65+ hours of practical labs</div><span class="yr">2026</span></div></div>
+        <div class="card cert"><div class="icon-chip teal"><svg class="i"><use href="#i-shield"/></svg></div><div><h3>SOC Analyst Strong Foundation</h3><div class="by">Udemy</div><span class="yr">2025</span></div></div>
+      </div>
+
+      <p class="subhead">Education</p>
+      <div class="grid2">
+        <div class="card cert"><div class="icon-chip"><svg class="i"><use href="#i-cap"/></svg></div><div><h3>MSc Computer Science (Cyber Security)</h3><div class="by">Staffordshire University, London</div><p class="muted" style="font-size:14.5px;margin:8px 0 0">Modules: Penetration Testing, Digital Forensics, Mobile Forensics, Operating Systems</p><span class="yr">2023 – 2024</span></div></div>
+        <div class="card cert"><div class="icon-chip"><svg class="i"><use href="#i-cap"/></svg></div><div><h3>BSc Computer Science and Information Technology</h3><div class="by">Patan Multiple Campus, Tribhuvan University, Nepal</div><span class="yr">2013 – 2017</span></div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="page" id="v-contact" aria-label="Contact">
+      <div class="ph"><h1>Contact</h1><p>I’m open to cybersecurity roles in Nepal and the UK and can start immediately.</p></div>
+      <div class="contact-grid">
+        <div class="card">
+          <div class="cline"><div class="icon-chip"><svg class="i"><use href="#i-mail"/></svg></div><div><small>Email</small><a href="mailto:rameshjoci84@gmail.com" target="_blank" rel="noopener">rameshjoci84@gmail.com</a></div></div>
+          <div class="cline"><div class="icon-chip"><svg class="i"><use href="#i-in"/></svg></div><div><small>LinkedIn</small><a href="https://www.linkedin.com/in/ramesh-joshi-7472aa256" target="_blank" rel="noopener">ramesh-joshi-7472aa256</a></div></div>
+          <div class="cline"><div class="icon-chip teal"><svg class="i"><use href="#i-pin"/></svg></div><div><small>Location</small><span class="v">London, UK – ready to relocate to Kathmandu, Nepal</span></div></div>
+        </div>
+        <div class="card">
+          <h2>Send me a message</h2>
+          <p class="muted">The quickest way to reach me is by email. If your email app doesn’t open, use Gmail or copy the address.</p>
+          <div class="row">
+            <a class="btn primary" href="mailto:rameshjoci84@gmail.com" target="_blank" rel="noopener"><svg class="i"><use href="#i-mail"/></svg>Email me</a>
+            <a class="btn ghost" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=rameshjoci84@gmail.com" target="_blank" rel="noopener">Write in Gmail</a>
+            <button class="btn ghost" id="copyBtn" type="button">Copy email</button>
+          </div>
+          <div class="copied" id="copied" aria-live="polite"></div>
+        </div>
+      </div>
+      <p class="foot">© 2026 Ramesh Joshi</p>
+    </section>
+  </div>
+</div>
+
+<script>
+(function(){
+  var views=['home','projects','skills','experience','certifications','contact'];
+  var side=document.getElementById('side'), scrim=document.getElementById('scrim'), btn=document.getElementById('menuBtn');
+  function setMenu(open){side.classList.toggle('open',open);scrim.classList.toggle('open',open);btn.setAttribute('aria-expanded',open?'true':'false');}
+  function show(v){
+    if(views.indexOf(v)<0) v='home';
+    views.forEach(function(n){document.getElementById('v-'+n).classList.toggle('on',n===v);});
+    document.querySelectorAll('.menu a').forEach(function(a){
+      if(a.dataset.view===v) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
+    });
+    var titles={home:'Ramesh Joshi – Cybersecurity Analyst',projects:'Projects – Ramesh Joshi',skills:'Skills – Ramesh Joshi',experience:'Experience – Ramesh Joshi',certifications:'Certifications – Ramesh Joshi',contact:'Contact – Ramesh Joshi'};
+    document.title=titles[v];
+    window.scrollTo(0,0); setMenu(false);
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-view]'); if(!a) return;
+    e.preventDefault(); var v=a.dataset.view;
+    try{history.replaceState(null,'','#'+v);}catch(err){}
+    show(v);
+  });
+  btn.addEventListener('click',function(){setMenu(!side.classList.contains('open'));});
+  scrim.addEventListener('click',function(){setMenu(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1));});
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    var out=document.getElementById('copied'), addr='rameshjoci84@gmail.com';
+    function done(){out.textContent='Email address copied.';}
+    function fallback(){
+      var t=document.createElement('textarea'); t.value=addr; t.setAttribute('readonly',''); t.style.position='fixed'; t.style.opacity='0';
+      document.body.appendChild(t); t.select(); var ok=false;
+      try{ok=document.execCommand('copy');}catch(err){}
+      document.body.removeChild(t);
+      out.textContent=ok?'Email address copied.':'Copy this address: '+addr;
+    }
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(addr).then(done,fallback);}
+    else{fallback();}
+  });
+  show(location.hash.slice(1));
+})();
+</script>
+</body>
+</html>
